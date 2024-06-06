@@ -1,0 +1,19 @@
+
+    <h1 *ngIf="!isEditMode">Ajout de livre</h1>
+    <h1 *ngIf="isEditMode">Modification de livre</h1>
+
+    <form (ngSubmit)="submitForm()" id="addBookForm" [formGroup]="bookForm" *ngIf="initedForm">
+        <label for="title">Titre :</label>
+        <input formControlName="title" type="text" id="title" name="title" required><br><br>
+        
+        <label for="author">Auteur :</label>
+        <input type="text" id="author" formControlName="author" name="author" required><br><br>
+        
+        <label for="genre">Genre :</label>
+        <input type="text" id="genre" name="genre" formControlName="genre"><br><br>
+        
+        <label for="publicationYear">Année de publication :</label>
+        <input type="number" id="publicationYear" formControlName="anneePublication" name="publicationYear"><br><br>
+        
+        <button type="submit" class="primary" [innerHTML]="isEditMode ? 'Modifier livre ' : 'Ajouter livre'"></button>
+    </form>
